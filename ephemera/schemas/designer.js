@@ -5,8 +5,7 @@ export default {
   fields: [
     {
       name: 'name',
-      title: 'Last name',
-      description: 'Last name or collective name',
+      title: 'Last name / Collective name',
       type: 'string',
       validation: Rule => Rule.required(),
     },
@@ -28,7 +27,14 @@ export default {
   ],
   preview: {
     select: {
-      title: 'name',
+      name: 'name',
+      firstName: 'firstName'
     },
+    prepare(selection) {
+      const {name, firstName} = selection
+      return {
+        title: firstName ? `${firstName} ${name}` : `${name}`,
+      }
+    }
   },
 }
