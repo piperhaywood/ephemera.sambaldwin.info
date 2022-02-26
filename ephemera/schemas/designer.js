@@ -1,20 +1,26 @@
 export default {
-  name: 'typeface',
-  title: 'Typeface',
+  name: 'designer',
+  title: 'Designer',
   type: 'document',
   fields: [
     {
-      name: 'title',
-      title: 'Title',
+      name: 'name',
+      title: 'Last name',
+      description: 'Last name or collective name',
       type: 'string',
       validation: Rule => Rule.required(),
+    },
+    {
+      name: 'firstName',
+      title: 'First name',
+      type: 'string',
     },
     {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
       options: {
-        source: 'title',
+        source: doc => doc.firstName ? `${doc.firstName}-${doc.name}` : `${doc.name}`,
         maxLength: 96,
       },
       validation: Rule => Rule.required(),
@@ -22,7 +28,7 @@ export default {
   ],
   preview: {
     select: {
-      title: 'title',
+      title: 'name',
     },
   },
 }

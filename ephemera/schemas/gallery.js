@@ -10,15 +10,7 @@ export default {
       of: [
         {
           name: 'image',
-          type: 'image',
-          title: 'Image',
-          fields: [
-            {
-              name: 'alt',
-              type: 'string',
-              title: 'Alt text',
-            },
-          ],
+          type: 'singleImage',
         },
       ],
       options: {
