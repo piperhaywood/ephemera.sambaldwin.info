@@ -44,16 +44,19 @@ export default {
       validation: Rule => Rule.required(),
     },
     {
-      name: 'mainImage',
-      title: 'Main image',
-      type: 'singleImage',
-      group: 'images',
-      validation: Rule => Rule.required(),
-    },
-    {
       name: 'images',
-      type: 'gallery',
-      group: 'images'
+      type: 'array',
+      title: 'Images',
+      of: [
+        {
+          name: 'image',
+          type: 'singleImage',
+        },
+      ],
+      options: {
+        layout: 'grid',
+      },
+      validation: Rule => Rule.required(),
     },
     {
       name: 'designer',
@@ -119,8 +122,15 @@ export default {
   preview: {
     select: {
       title: 'title',
-      media: 'mainImage',
+      images: 'images',
     },
+    prepare(selection) {
+      const {title, images} = selection
+      return {
+        title: title,
+        media: images[0],
+      }
+    }
   },
 
   orderings: [
