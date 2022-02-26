@@ -12,6 +12,15 @@ export default {
       title: 'Images'
     },
   ],
+  fieldsets: [
+    {
+      name: 'dimensions',
+      title: 'Dimensions',
+      options: {
+        columns: 2,
+      },
+    }
+  ],
   fields: [
     {
       name: 'title',
@@ -79,12 +88,14 @@ export default {
       type: 'number',
       description: 'Width in millimetres',
       group: 'data',
+      fieldset: 'dimensions',
     },
     {
       name: 'height',
       type: 'number',
       description: 'Height in millimetres',
       group: 'data',
+      fieldset: 'dimensions',
     },
     {
       name: 'artworkDate',
@@ -111,4 +122,35 @@ export default {
       media: 'mainImage',
     },
   },
+
+  orderings: [
+    {
+      title: 'Artwork Date, New',
+      name: 'artworkDateDesc',
+      by: [
+        {field: 'artworkDate', direction: 'desc'}
+      ]
+    },
+    {
+      title: 'Artwork Date, Old',
+      name: 'artworkDateAsc',
+      by: [
+        {field: 'artworkDate', direction: 'asc'}
+      ]
+    },
+    {
+      title: 'Published At, New',
+      name: 'publishedAtDesc',
+      by: [
+        {field: 'publishedAt', direction: 'desc'}
+      ]
+    },
+    {
+      title: 'Published At, Old',
+      name: 'publishedAtAsc',
+      by: [
+        {field: 'publishedAt', direction: 'asc'}
+      ]
+    },
+  ]
 }

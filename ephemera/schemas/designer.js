@@ -2,17 +2,28 @@ export default {
   name: 'designer',
   title: 'Designer',
   type: 'document',
-  fields: [
+  fieldsets: [
     {
       name: 'name',
+      title: 'Name',
+      options: {
+        columns: 2,
+      },
+    },
+  ],
+  fields: [
+    {
+      name: 'lastName',
       title: 'Last name / Collective name',
       type: 'string',
       validation: Rule => Rule.required(),
+      fieldset: 'name',
     },
     {
       name: 'firstName',
       title: 'First name',
       type: 'string',
+      fieldset: 'name',
     },
     {
       name: 'slug',
