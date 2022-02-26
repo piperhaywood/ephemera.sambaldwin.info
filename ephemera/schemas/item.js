@@ -107,12 +107,6 @@ export default {
       group: 'data',
     },
     {
-      name: 'color',
-      title: 'Predominant color',
-      type: 'color',
-      group: 'data',
-    },
-    {
       name: 'notes',
       type: 'blockContent',
       group: 'data',
