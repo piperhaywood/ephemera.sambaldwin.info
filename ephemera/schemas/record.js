@@ -88,7 +88,7 @@ export default {
     {
       name: 'artworkDate',
       title: 'Artwork date',
-      type: 'datetime',
+      type: 'date',
       group: 'data',
     },
     {
