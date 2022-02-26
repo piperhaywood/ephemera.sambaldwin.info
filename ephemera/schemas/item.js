@@ -1,6 +1,6 @@
 export default {
-  name: 'record',
-  title: 'Record',
+  name: 'item',
+  title: 'Item',
   type: 'document',
   groups: [
     {
@@ -128,7 +128,7 @@ export default {
       const {title, images} = selection
       return {
         title: title,
-        media: images[0],
+        media: images ? images[0] : false,
       }
     }
   },

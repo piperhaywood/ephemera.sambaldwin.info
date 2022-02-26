@@ -7,7 +7,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 // We import object and document schemas
 import blockContent from './blockContent'
 import designer from './designer'
-import record from './record'
+import item from './item'
 import singleImage from './singleImage'
 import tag from './tag'
 import typeface from './typeface'
@@ -17,7 +17,7 @@ export default createSchema({
   name: 'default',
   types: schemaTypes.concat([
     designer,
-    record,
+    item,
     tag,
     typeface,
     blockContent,
