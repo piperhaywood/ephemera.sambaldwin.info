@@ -33,7 +33,7 @@ export default {
       title: 'Slug',
       type: 'slug',
       options: {
-        source: doc => doc.firstName ? `${doc.firstName}-${doc.name}` : `${doc.name}`,
+        source: doc => doc.firstName ? `${doc.firstName}-${doc.lastName}` : `${doc.lastName}`,
         maxLength: 96,
       },
       validation: Rule => Rule.required(),
@@ -41,13 +41,13 @@ export default {
   ],
   preview: {
     select: {
-      name: 'name',
+      lastName: 'lastName',
       firstName: 'firstName'
     },
     prepare(selection) {
-      const {name, firstName} = selection
+      const {lastName, firstName} = selection
       return {
-        title: firstName ? `${firstName} ${name}` : `${name}`,
+        title: firstName ? `${firstName} ${lastName}` : `${lastName}`,
       }
     }
   },
