@@ -1,7 +1,10 @@
+import { MdOutlineInsertDriveFile } from 'react-icons/md'
+
 export default {
   name: 'item',
   title: 'Item',
   type: 'document',
+  icon: MdOutlineInsertDriveFile,
   groups: [
     {
       name: 'data',

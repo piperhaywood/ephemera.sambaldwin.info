@@ -1,7 +1,10 @@
+import { MdTextFields } from 'react-icons/md'
+
 export default {
   name: 'typeface',
   title: 'Typeface',
   type: 'document',
+  icon: MdTextFields,
   fields: [
     {
       name: 'title',

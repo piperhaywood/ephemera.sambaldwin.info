@@ -1,7 +1,10 @@
+import { MdPersonOutline } from 'react-icons/md'
+
 export default {
   name: 'designer',
   title: 'Designer',
   type: 'document',
+  icon: MdPersonOutline,
   fieldsets: [
     {
       name: 'name',
