@@ -2,6 +2,17 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## TODO
+
+- separate stuff in to components
+- dry out the archive pages
+- add header and footer, including metadata
+- add rss
+- check what happens if a reference is unpublished
+- how to handle 404 errors
+- figure out why alphabetical orderig of tags isn't working
+- display exif
+
 ## Available Scripts
 
 In the project directory, you can run:
