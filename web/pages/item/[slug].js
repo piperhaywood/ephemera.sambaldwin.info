@@ -1,13 +1,17 @@
-// item.js
-import Link from 'next/link'
-import groq from 'groq'
-import imageUrlBuilder from '@sanity/image-url'
+import Head from 'next/head'
+import { useRouter } from 'next/router'
+import ErrorPage from 'next/error'
 import {PortableText} from '@portabletext/react'
 import client from '../../client'
-
-function urlFor (source) {
-  return imageUrlBuilder(client).image(source)
-}
+import Container from '../../components/container'
+import DesignerInfo from '../../components/designer-info'
+import Images from '../../components/images'
+import ItemInfo from '../../components/item-info'
+import Layout from '../../components/layout'
+import Meta from '../../components/meta'
+import Tags from '../../components/tags'
+import { getCurrentQuery, itemQuery } from '../../lib/queries'
+import { urlFor } from '../../lib/sanity'
 
 const ptComponents = {
   types: {
@@ -26,108 +30,76 @@ const ptComponents = {
   }
 }
 
-const Item = (props) => {
+export default function Item({ item }) {
 
-  const {
-    title = false,
-    artworkDate = false,
-    designer,
-    height = false,
-    images,
-    notes = [],
-    tags,
-    typefaces,
-    width = false,
-  } = props.item
+  const router = useRouter()
 
-  const designerName = designer.firstName ? `${designer.firstName} ${designer.lastName}` : designer.lastName
-  const allTags = tags.concat(typefaces).sort((a, b) => (a.title > b.title) ? 1 : -1) // Group tags and typefaces, sort alphabetically
-  const year = artworkDate ? new Date(artworkDate).getFullYear() : false
-  const dims = width && height ? `${width} × ${height} mm` : false
-  const data = [year, dims].filter(Boolean).join(', ')
+  if (!router.isFallback && !item.slug) {
+    return <ErrorPage statusCode={404} />
+  }
 
   return (
-    <article>
-
-      <section>
-        <h1>{title}</h1>
-
-        {(data) && (
-          <p>{data}</p>
-        )}
-
-        {(designerName && designer.slug) && (
-          <p>Designed by{' '}
-            <Link href="/designer/[slug]" as={`/designer/${designer.slug}`}>
-              <a>{designerName}</a>
-            </Link>
-          </p>
-        )}
-
-        <PortableText
-          value={notes}
-          components={ptComponents}
-        />
-
-        {allTags.length > 0 && (
-          <ul aria-label="Tags">
-            {allTags.map(tag => 
-              tag.slug && (
-                <li key={tag._id}>
-                  <Link href={`/${tag.type}/[slug]`} as={`/${tag.type}/${tag.slug}`}>
-                    <a>{tag.title}</a>
-                  </Link>
-                </li>
-              )
-            )}
-          </ul>
-        )}
-      </section>
-
-      <section>
-        {images.length > 0 && (
+    <Layout>
+      <Container>
+        {router.isFallback ? (
+          <h1>Loading…</h1>
+        ) : (
           <>
-          {images.map(image =>
-            <figure key={image._key}>
-              {console.log(image.palette)}
-              <img
-                src={urlFor(image.asset)
-                  .width(900)
-                  .url()}
-                alt={image.alt || ' '} // TODO Why isn’t this working?
+            <article>
+              <Head>
+                <title>
+                  {item.title} | Ephemera
+                </title>
+              </Head>
+              <Meta
+                path={`/item/${item.slug}`}
+                title={item.title}
+                image={item.mainImage}
+                type="article"
+                publishedTime={item.publishedAt}
               />
-            </figure>
-          )}
+              <section>
+                <h1>{item.title}</h1>
+
+                <ItemInfo
+                  width={item.width}
+                  height={item.height}
+                  date={item.artworkDate}
+                />
+                
+                {item.designer && (
+                  <DesignerInfo
+                    firstName={item.designer.firstName}
+                    lastName={item.designer.lastName}
+                    slug={item.designer.slug}
+                  />
+                )}
+
+                <PortableText
+                  value={item.notes}
+                  components={ptComponents}
+                />
+
+                <Tags
+                  tags={[item.tags, item.typefaces]}
+                />
+              </section>
+
+              <section>
+                <Images
+                  images={item.images}
+                />
+              </section>
+            </article>
           </>
         )}
-      </section>
-
-    </article>
+      </Container>
+    </Layout>
   )
-
 }
 
-const query = groq`*[_type == "item" && slug.current == $slug][0]{
-  title,
-  artworkDate,
-  height,
-  notes,
-  width,
-  "designer": designer->{firstName, lastName, "slug": slug.current},
-  "images": images[]{
-    ...,
-    "palette": asset->metadata.palette,
-    "exif": asset->metadata.exif
-  },
-  "tags": tags[]->{"type": "tag", title, _id, "slug": slug.current},
-  "typefaces": typefaces[]->{"type": "typeface", title, _id, "slug": slug.current},
-}`
-
 export async function getStaticPaths() {
-  const paths = await client.fetch(
-    groq`*[_type == "item" && defined(slug.current)][].slug.current`
-  )
-
+  const paths = await client.fetch(getCurrentQuery("item"))
   return {
     paths: paths.map((slug) => ({params: {slug}})),
     fallback: true,
@@ -136,13 +108,10 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   const { slug = "" } = context.params
-  const item = await client.fetch(query, { slug })
-  console.log(item)
+  const item = await client.fetch(itemQuery, { slug })
   return {
     props: {
       item
     }
   }
 }
-
-export default Item
