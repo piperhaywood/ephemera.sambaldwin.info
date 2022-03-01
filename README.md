@@ -1,21 +1,22 @@
-# Getting Started with Create React App
+# Ephemera
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+I used this [Sanity blog tutorial](https://www.sanity.io/blog/build-your-own-blog-with-sanity-and-next-js) and the [Next.js blog example using Sanity](https://github.com/vercel/next.js/tree/canary/examples/cms-sanity) as the starting points for this project.
 
 ## TODO
 
+- paginate the archive pages
 - separate stuff in to components
 - dry out the archive pages
 - add header and footer, including metadata
 - add rss
 - check what happens if a reference is unpublished
 - how to handle 404 errors
-- figure out why alphabetical orderig of tags isn't working
+- figure out why alphabetical ordering of tags isn't working
 - display exif
 
-## Available Scripts
+## Available Scripts, `/web`
 
-In the project directory, you can run:
+In the project directory `/web`, you can run:
 
 ### `npm start`
 
@@ -50,32 +51,10 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Available scripts, `/studio`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+In the Sanity Studio directory, you can run `sanity start` to get Sanity Studio up and running in your browser.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Forking this
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+If you fork this project for your own experimentation, be sure to edit the `projectId` in `/studio/sanity.json`.
