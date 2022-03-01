@@ -10,10 +10,10 @@ export default function Tags({ tags }) {
   return (
     <>
       {allTags.length > 0 && (
-        <ul aria-label="Tags">
+        <ul className="tag-list" aria-label="Tags">
           {allTags.map(tag => 
             tag.slug && (
-              <li key={tag._id}>
+              <li className="tag-item" key={tag._id}>
                 <Link href={`/${tag.type}/[slug]`} as={`/${tag.type}/${tag.slug}`}>
                   <a>{tag.title}</a>
                 </Link>
@@ -22,6 +22,24 @@ export default function Tags({ tags }) {
           )}
         </ul>
       )}
+      <style jsx>{`
+        .tag-list {
+          list-style: none;
+          padding-left: 0;
+        }
+        .tag-list:before {
+          content: attr(aria-label) ": ";
+        }
+        .tag-item {
+          display: inline;
+        }
+        .tag-item:after {
+          content: ', ';
+        }
+        .tag-item:last-child:after {
+          content: none;
+        }
+      `}</style>
     </>
   )
 }

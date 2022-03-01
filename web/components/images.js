@@ -7,7 +7,7 @@ export default function Images({ images }) {
       {(images && images.length > 0) && (
         <>
         {images.map(image =>
-          <figure key={image._key}>
+          <figure className="item-figure" key={image._key}>
             <Image
               src={urlFor(image.asset).width(900).url()}
               width={image.width}
@@ -18,6 +18,14 @@ export default function Images({ images }) {
         )}
         </>
       )}
+      <style jsx>{`
+        .item-figure {
+          margin-bottom: var(--gutter-y);
+        }
+        .item-figure:last-child {
+          margin-bottom: 0;
+        }
+      `}</style>
     </>
   )
 }

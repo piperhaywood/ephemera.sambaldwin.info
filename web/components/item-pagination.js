@@ -4,8 +4,8 @@ export default function ItemPagination({next, prev}) {
   return (
     <>
       {(next || prev) && (
-        <nav>
-          <ul>
+        <nav className="item-nav">
+          <ul className="item-nav-list">
             {(next) && (
               <li>
                 <Link href="/item[slug]" as={`/item/${next.slug}`}>
@@ -23,6 +23,12 @@ export default function ItemPagination({next, prev}) {
           </ul>
         </nav>
       )}
+      <style jsx>{`
+        .item-nav-list {
+          list-style: none;
+          padding-left: 0;
+        }
+      `}</style>
     </>
   )
 }

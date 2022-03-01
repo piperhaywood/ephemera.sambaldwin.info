@@ -6,6 +6,7 @@ import DesignerInfo from '../../components/designer-info'
 import Images from '../../components/images'
 import ItemInfo from '../../components/item-info'
 import ItemPagination from '../../components/item-pagination'
+import ItemTitle from '../../components/item-title'
 import Layout from '../../components/layout'
 import Meta from '../../components/meta'
 import Tags from '../../components/tags'
@@ -32,61 +33,92 @@ const ptComponents = {
 export default function Item({ item }) {
 
   return (
-    <Layout>
-      <Container>
-        <>
-          <article>
-            <Head>
-              <title>
-                {item.title} | Ephemera
-              </title>
-            </Head>
-            <Meta
-              path={`/item/${item.slug}`}
-              title={item.title}
-              image={item.mainImage}
-              type="article"
-              publishedTime={item.publishedAt}
-            />
-            <section>
-              <h1>{item.title}</h1>
-
-              <ItemInfo
-                width={item.width}
-                height={item.height}
-                date={item.artworkDate}
+    <>
+      <Layout>
+        <Container>
+          <>
+            <article className="item-layout">
+              <Head>
+                <title>
+                  {item.title} | Ephemera
+                </title>
+              </Head>
+              <Meta
+                path={`/item/${item.slug}`}
+                title={item.title}
+                image={item.mainImage}
+                type="article"
+                publishedTime={item.publishedAt}
               />
+              <section className="item-text">
+                <header className="item-header">
+                  <div className="item-data">
+                    <ItemTitle title={item.title} />
 
-              {(item.designer && !item.designer._weak) && (
-                <DesignerInfo
-                  designer={item.designer}
-                />
-              )}
+                    <ItemInfo
+                      width={item.width}
+                      height={item.height}
+                      date={item.artworkDate}
+                    />
 
-              <PortableText
-                value={item.notes}
-                components={ptComponents}
-              />
+                    {(item.designer && !item.designer._weak) && (
+                      <DesignerInfo designer={item.designer} />
+                    )}
+                  </div>
 
-              <Tags
-                tags={[item.tags, item.typefaces]}
-              />
+                  <PortableText
+                    value={item.notes}
+                    components={ptComponents}
+                  />
 
-              <ItemPagination
-                next={item.next}
-                prev={item.prev}
-              />
-            </section>
+                  <Tags tags={[item.tags, item.typefaces]} />
 
-            <section>
-              <Images
-                images={item.images}
-              />
-            </section>
-          </article>
-        </>
-      </Container>
-    </Layout>
+                  <ItemPagination
+                    next={item.next}
+                    prev={item.prev}
+                  />
+                </header>
+              </section>
+
+              <section className="item-images">
+                <Images images={item.images} />
+              </section>
+            </article>
+          </>
+        </Container>
+      </Layout>
+      <style jsx>{`
+        .item-layout {
+          margin-top: var(--gutter-y);
+        }
+        .item-text {
+          position: relative;
+        }
+        .item-header {
+          padding-bottom: 2.5rem;
+          position: sticky;
+          top: var(--gutter-y);
+        }
+        .item-data {
+          margin-bottom: 1rem;
+        }
+        @media (min-width: 50em) {
+          .item-layout {
+            column-gap: clamp(1rem, 9vw, 7.375rem);
+            display: grid;
+            grid-template-columns: 1fr 17.5rem;
+          }
+          .item-text {
+            grid-column: 2;
+            grid-row: 1;
+          }
+          .item-images {
+            grid-column: 1;
+            grid-row: 1;
+          }
+        }
+      `}</style>
+    </>
   )
 }
 

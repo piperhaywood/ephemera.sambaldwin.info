@@ -1,0 +1,89 @@
+:root {
+  --color-text: #333;
+  --font-sans: "Atlas Grotesk Web", sans-serif;
+  --container-max-width: 80rem;
+  --gutter-x: 1.5rem;
+  --gutter-y: 1.25rem;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+body {
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration-line: none;
+}
+
+a:hover {
+  text-decoration-line: underline;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+address {
+  font-style: normal;
+}
+
+figure {
+  margin: 0;
+}
+
+cite {
+  font-style: normal;
+}
+
+dd {
+  margin-left: 1em;
+}
+
+dd ul {
+  margin-top: 0;
+}
+
+sup {
+  font-size: 0.6em;
+  line-height: 0;
+}
+
+img[src=""] {
+  opacity: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol {
+  font-size: inherit;
+  font-weight: inherit;
+  margin-top: 0;
+}
+
+p:last-child,
+ul:last-child,
+ol:last-child {
+  margin-bottom: 0;
+}

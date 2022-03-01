@@ -5,8 +5,13 @@ export default function ItemInfo({ width, height, date }) {
   return (
     <>
       {(info) && (
-        <p>{info}</p>
+        <p className="text">{info}</p>
       )}
+      <style jsx>{`
+        .text {
+          margin-bottom: 0;
+        }
+      `}</style>
     </>
   )
 }
