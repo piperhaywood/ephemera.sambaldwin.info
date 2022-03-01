@@ -9,7 +9,7 @@ export default function Footer() {
           <p className="footer-text">&copy; {new Date().getFullYear()} Sam Baldwin. Website by{' '}
             <Link href="https://piperhaywood.com">
               <a>Piper Haywood</a>
-            </Link>.
+            </Link>. More content to come.
           </p>
         </Container>
       </footer>
