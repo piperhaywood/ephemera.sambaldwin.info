@@ -1,15 +1,18 @@
 import Link from 'next/link'
 
-export default function DesignerInfo({ firstName, lastName, slug }) {
-  const designerName = firstName ? `${firstName} ${lastName}` : lastName
+export default function DesignerInfo({ designer }) {
+  const name = [designer.firstName, designer.lastName].filter(Boolean).join(' ')
+  const slug = designer.slug
   return (
     <>
       <p>Designed by{' '}
         {slug ? (
           <Link href="/designer/[slug]" as={`/designer/${slug}`}>
-            <a>{designerName}</a>
+            <a>{name}</a>
           </Link>
-        ) : ({designerName})}
+        ) : (
+          <span>{name}</span>
+        )}
       </p>
     </>
   )

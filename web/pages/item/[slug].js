@@ -56,12 +56,10 @@ export default function Item({ item }) {
                 height={item.height}
                 date={item.artworkDate}
               />
-              
-              {item.designer && (
+
+              {(item.designer && !item.designer._weak) && (
                 <DesignerInfo
-                  firstName={item.designer.firstName}
-                  lastName={item.designer.lastName}
-                  slug={item.designer.slug}
+                  designer={item.designer}
                 />
               )}
 

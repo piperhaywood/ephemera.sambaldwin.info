@@ -64,6 +64,7 @@ export default {
     {
       name: 'designer',
       type: 'reference',
+      weak: true,
       to: {type: 'designer'},
       group: 'data',
     },
@@ -73,6 +74,7 @@ export default {
       of: [
         {
           type: 'reference',
+          weak: true,
           to: {type: 'tag'},
         },
       ],
@@ -84,6 +86,7 @@ export default {
       of: [
         {
           type: 'reference',
+          weak: true,
           to: {type: 'typeface'},
         },
       ],

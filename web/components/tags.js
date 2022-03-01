@@ -1,7 +1,11 @@
 import Link from 'next/link'
 
 export default function Tags({ tags }) {
-  const allTags = [].concat.apply([], tags).sort((a, b) => (a.title > b.title) ? 1 : -1)
+  const allTags = [].concat
+    .apply([], tags)
+    .filter(Boolean)
+    .filter(tag => !tag._weak)
+    .sort((a, b) => (a.title > b.title) ? 1 : -1)
 
   return (
     <>

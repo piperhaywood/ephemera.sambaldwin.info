@@ -46,8 +46,9 @@ export default {
     },
     prepare(selection) {
       const {lastName, firstName} = selection
+      const title = [firstName, lastName].filter(Boolean).join(' ')
       return {
-        title: firstName ? `${firstName} ${lastName}` : `${lastName}`,
+        title: title,
       }
     }
   },
