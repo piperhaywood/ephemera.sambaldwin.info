@@ -1,5 +1,7 @@
 # Ephemera
 
+This is a website for paper-based ephemera collected by [Sam Baldwin](https://sambaldwin.info), built by [Piper Haywood](https://piperhaywood.com). Public URL coming soon.
+
 I used this [Sanity blog tutorial](https://www.sanity.io/blog/build-your-own-blog-with-sanity-and-next-js) and the [Next.js blog example using Sanity](https://github.com/vercel/next.js/tree/canary/examples/cms-sanity) as the starting points for this project.
 
 ## Available Scripts, `/web`
@@ -42,7 +44,3 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 ## Available scripts, `/studio`
 
 In the Sanity Studio directory, you can run `sanity start` to get Sanity Studio up and running in your browser.
-
-## Forking this
-
-If you fork this project for your own experimentation, be sure to edit the `projectId` in `/studio/sanity.json`.
