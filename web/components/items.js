@@ -14,7 +14,7 @@ export default function Items({ items }) {
           </div>
         ))}
       </section>
-      <style jxs>{`
+      <style jsx>{`
         .items {
           column-gap: 0.75rem;
           display: grid;
