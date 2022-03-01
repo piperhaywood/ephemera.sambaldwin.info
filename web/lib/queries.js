@@ -33,6 +33,8 @@ export const itemQuery = groq`
   "slug": slug.current,
   "tags": tags[]->{"type": "tag", title, _id, "slug": slug.current},
   "typefaces": typefaces[]->{"type": "typeface", title, _id, "slug": slug.current},
+  "prev": *[_type == "item" && publishedAt < ^.publishedAt][0]{title, "slug": slug.current},
+  "next": *[_type == "item" && publishedAt > ^.publishedAt] | order(publishedAt asc)[0]{title, "slug": slug.current}
 }
 `
 

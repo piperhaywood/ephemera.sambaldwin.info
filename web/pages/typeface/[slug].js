@@ -1,6 +1,4 @@
 import Head from 'next/head'
-import { useRouter } from 'next/router'
-import ErrorPage from 'next/error'
 import client from '../../client'
 import Container from '../../components/container'
 import Items from '../../components/items'
@@ -9,33 +7,23 @@ import Meta from '../../components/meta'
 import { getCurrentQuery, typefaceQuery, typefaceItemsQuery } from '../../lib/queries'
 
 export default function Typeface({typeface, items}) {
-  const router = useRouter()
-
-  if (!router.isFallback && !typeface.slug) {
-    return <ErrorPage statusCode={404} />
-  }
-
   return (
     <>
       <Layout>
         <Container>
-          {router.isFallback ? (
-            <h1>Loading…</h1>
-          ) : (
-            <>
-              <Head>
-                <title>Typeface: {typeface.title} | Emphemera</title>
-              </Head>
-              <Meta
-                  path={`/typeface/${typeface.slug}`}
-                  title={`Includes typeface: ${typeface.title}`}
-                  // image={item.mainImage} // TODO Add image
-                  type="website"
-                />
-              <p>Includes typeface: {typeface.title}</p>
-              {items.length > 0 && <Items items={items} />}
-            </>
-          )}
+          <>
+            <Head>
+              <title>Typeface: {typeface.title} | Emphemera</title>
+            </Head>
+            <Meta
+                path={`/typeface/${typeface.slug}`}
+                title={`Includes typeface: ${typeface.title}`}
+                // image={item.mainImage} // TODO Add image
+                type="website"
+              />
+            <p>Includes typeface: {typeface.title}</p>
+            {items.length > 0 && <Items items={items} />}
+          </>
         </Container>
       </Layout>
     </>
@@ -46,7 +34,7 @@ export async function getStaticPaths() {
   const paths = await client.fetch(getCurrentQuery("typeface"))
   return {
     paths: paths.map((slug) => ({params: {slug}})),
-    fallback: true,
+    fallback: false,
   }
 }
 

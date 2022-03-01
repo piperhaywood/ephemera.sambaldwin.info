@@ -1,6 +1,4 @@
 import Head from 'next/head'
-import { useRouter } from 'next/router'
-import ErrorPage from 'next/error'
 import client from '../../client'
 import Container from '../../components/container'
 import Items from '../../components/items'
@@ -9,35 +7,25 @@ import Meta from '../../components/meta'
 import { getCurrentQuery, designerQuery, designerItemsQuery } from '../../lib/queries'
 
 export default function Designer({designer, items}) {
-  const router = useRouter()
-
-  if (!router.isFallback && !designer.slug) {
-    return <ErrorPage statusCode={404} />
-  }
-
   const designerName = designer.firstName ? `${designer.firstName} ${designer.lastName}` : designer.lastName
 
   return (
     <>
       <Layout>
         <Container>
-          {router.isFallback ? (
-            <h1>Loading…</h1>
-          ) : (
-            <>
-              <Head>
-                <title>Designed by {designerName} | Emphemera</title>
-              </Head>
-              <Meta
-                  path={`/designer/${designer.slug}`}
-                  title={`Designed by ${designerName}`}
-                  // image={item.mainImage} // TODO Add image
-                  type="website"
-                />
-              <p>Designed by {designerName}</p>
-              {items.length > 0 && <Items items={items} />}
-            </>
-          )}
+          <>
+            <Head>
+              <title>Designed by {designerName} | Emphemera</title>
+            </Head>
+            <Meta
+                path={`/designer/${designer.slug}`}
+                title={`Designed by ${designerName}`}
+                // image={item.mainImage} // TODO Add image
+                type="website"
+              />
+            <p>Designed by {designerName}</p>
+            {items.length > 0 && <Items items={items} />}
+          </>
         </Container>
       </Layout>
     </>
@@ -48,7 +36,7 @@ export async function getStaticPaths() {
   const paths = await client.fetch(getCurrentQuery("designer"))
   return {
     paths: paths.map((slug) => ({params: {slug}})),
-    fallback: true,
+    fallback: false,
   }
 }
 
