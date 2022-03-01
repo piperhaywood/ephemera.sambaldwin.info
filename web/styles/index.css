@@ -1,25 +1,42 @@
 @font-face {
   font-display: swap;
-  font-family: "Atlas Grotesk Web";
+  font-family: "Standard";
   font-style: normal;
-  font-weight: 500;
-  src: url("../../public/fonts/AtlasGrotesk-Medium-Web.woff2") format("woff2"),
-    url("../../public/fonts/AtlasGrotesk-Medium-Web.woff") format("woff");
+  font-weight: 400;
+  src: url("../public/fonts/standard-book-webfont.woff2") format("woff2"),
+    url("../public/fonts/standard-book-webfont.woff") format("woff");
 }
 
 @font-face {
   font-display: swap;
-  font-family: "Atlas Grotesk Web";
+  font-family: "Standard";
   font-style: italic;
-  font-weight: 500;
-  src: url("../../public/fonts/AtlasGrotesk-MediumItalic-Web.woff2")
-      format("woff2"),
-    url("../../public/fonts/AtlasGrotesk-MediumItalic-Web.woff") format("woff");
+  font-weight: 400;
+  src: url("../public/fonts/standard-book-italic-webfont.woff2") format("woff2"),
+    url("../public/fonts/standard-book-italic-webfont.woff") format("woff");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Standard";
+  font-style: italic;
+  font-weight: 600;
+  src: url("../public/fonts/standard-bold-italic-webfont.woff2") format("woff2"),
+    url("../public/fonts/standard-bold-italic-webfont.woff") format("woff");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Standard";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../public/fonts/standard-bold-webfont.woff2") format("woff2"),
+    url("../public/fonts/standard-bold-webfont.woff") format("woff");
 }
 
 :root {
   --color-text: #333;
-  --font-sans: "Atlas Grotesk Web", sans-serif;
+  --font-sans: "Standard", sans-serif;
   --container-max-width: 80rem;
   --gutter-x: 1.5rem;
   --gutter-y: 1.25rem;
