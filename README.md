@@ -2,16 +2,6 @@
 
 I used this [Sanity blog tutorial](https://www.sanity.io/blog/build-your-own-blog-with-sanity-and-next-js) and the [Next.js blog example using Sanity](https://github.com/vercel/next.js/tree/canary/examples/cms-sanity) as the starting points for this project.
 
-## TODO
-
-- paginate the archive pages
-- add next/previous to items
-- add rss
-- check what happens if a reference is unpublished, or if other data is missing
-- add 404 page
-- figure out why alphabetical ordering of tags isn't working
-- display exif
-
 ## Available Scripts, `/web`
 
 In the project directory `/web`, you can run:
