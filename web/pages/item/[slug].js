@@ -73,6 +73,11 @@ export default function Item({ item }) {
               <Tags
                 tags={[item.tags, item.typefaces]}
               />
+
+              <ItemPagination
+                next={item.next}
+                prev={item.prev}
+              />
             </section>
 
             <section>
