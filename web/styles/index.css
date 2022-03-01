@@ -1,3 +1,22 @@
+@font-face {
+  font-display: swap;
+  font-family: "Atlas Grotesk Web";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../../public/fonts/AtlasGrotesk-Medium-Web.woff2") format("woff2"),
+    url("../../public/fonts/AtlasGrotesk-Medium-Web.woff") format("woff");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Atlas Grotesk Web";
+  font-style: italic;
+  font-weight: 500;
+  src: url("../../public/fonts/AtlasGrotesk-MediumItalic-Web.woff2")
+      format("woff2"),
+    url("../../public/fonts/AtlasGrotesk-MediumItalic-Web.woff") format("woff");
+}
+
 :root {
   --color-text: #333;
   --font-sans: "Atlas Grotesk Web", sans-serif;
