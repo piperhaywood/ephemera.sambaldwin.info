@@ -6,6 +6,12 @@
   --gutter-y: 1.25rem;
 }
 
+@media (min-width: 50em) {
+  :root {
+    --gutter-x: clamp(1.5rem, 8vw, 5rem);
+  }
+}
+
 html {
   box-sizing: border-box;
 }
