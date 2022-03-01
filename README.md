@@ -5,12 +5,10 @@ I used this [Sanity blog tutorial](https://www.sanity.io/blog/build-your-own-blo
 ## TODO
 
 - paginate the archive pages
-- separate stuff in to components
-- dry out the archive pages
-- add header and footer, including metadata
+- add next/previous to items
 - add rss
-- check what happens if a reference is unpublished
-- how to handle 404 errors
+- check what happens if a reference is unpublished, or if other data is missing
+- add 404 page
 - figure out why alphabetical ordering of tags isn't working
 - display exif
 
