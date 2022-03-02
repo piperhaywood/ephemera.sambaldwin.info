@@ -1,0 +1,13 @@
+# .github/workflows/scheduled-builds.yml
+name: Trigger Site Rebuild on a CRON Schedule
+
+on:
+  schedule:
+    - cron: "55 * * * *"
+jobs:
+  build:
+    name: Trigger Site Rebuild
+    runs-on: ubuntu-latest
+    steps:
+      - name: cURL request
+        run: curl -X POST ${{ secrets.VERCEL_DEPLOY }}
