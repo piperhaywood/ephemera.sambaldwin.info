@@ -4,6 +4,8 @@ This is an early build of a website for an ephemera collection by [Sam Baldwin](
 
 I used this [Sanity blog tutorial](https://www.sanity.io/blog/build-your-own-blog-with-sanity-and-next-js) and the [Next.js blog example using Sanity](https://github.com/vercel/next.js/tree/canary/examples/cms-sanity) as the starting points for this project.
 
+The `main` branch build is deployed once an hour via a GitHub Actions workflow that triggers a Vercel deploy hook.
+
 ## Available Scripts, `/web`
 
 In the project directory `/web`, you can run:
