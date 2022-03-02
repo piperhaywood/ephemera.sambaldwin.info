@@ -19,17 +19,19 @@ export default function Images({ images }) {
         </div>
       )}
       <style jsx>{`
-        .item-images {
-          column-gap: 4.25rem;
-          display: grid;
-          grid-template-columns: repeat( auto-fit, minmax(26rem, 1fr) );
-          row-gap: 4.25rem;
-        }
         .item-figure {
           margin-bottom: var(--gutter-y);
         }
         .item-figure:last-child {
           margin-bottom: 0;
+        }
+        @media (min-width: 30em) {
+          .item-images {
+            column-gap: 4.25rem;
+            display: grid;
+            grid-template-columns: repeat( auto-fit, minmax(26rem, 1fr) );
+            row-gap: 4.25rem;
+          }
         }
       `}</style>
     </>
