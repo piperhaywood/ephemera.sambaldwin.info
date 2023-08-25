@@ -1,6 +1,6 @@
 # Ephemera
 
-This is an early build of a website for an ephemera collection by [Sam Baldwin](https://sambaldwin.info), built by [Piper Haywood](https://piperhaywood.com). Public URL coming soon.
+This is an early build of a website for an ephemera collection by [Sam Baldwin](https://sambaldwin.info), built by [Piper Haywood](https://piperhaywood.com). Public URL coming soon. Runs on node v18.6.0, see `.nvmrc`.
 
 I used this [Sanity blog tutorial](https://www.sanity.io/blog/build-your-own-blog-with-sanity-and-next-js) and the [Next.js blog example using Sanity](https://github.com/vercel/next.js/tree/canary/examples/cms-sanity) as the starting points for this project.
 
