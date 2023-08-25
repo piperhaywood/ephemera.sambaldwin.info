@@ -1,11 +1,11 @@
 {
-  "name": "ephemera",
+  "name": "ephemera-sanity-studio",
   "private": true,
   "version": "1.0.0",
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)",
+  "description": "This is Sanity Studio, a React app that connects to the hosted API which houses all of the content",
   "main": "package.json",
   "author": "Piper Haywood <piper@piperhaywood.com>",
-  "license": "UNLICENSED",
+  "license": "ISC",
   "scripts": {
     "start": "sanity start",
     "build": "sanity build"

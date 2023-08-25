@@ -1,15 +1,17 @@
 {
   "name": "web",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is a Next.js site which displays Sanity content",
   "main": "index.js",
   "scripts": {
     "dev": "next",
     "build": "next build",
     "start": "next start"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "next.js"
+  ],
+  "author": "Piper Haywood <piper@piperhaywood.com>",
   "license": "ISC",
   "dependencies": {
     "@portabletext/react": "^1.0.3",
