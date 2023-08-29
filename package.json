@@ -1,0 +1,15 @@
+{
+  "name": "ephemera",
+  "version": "1.0.0",
+  "description": "A Turbo monorepo housing a website for an ephemera collection by Sam Baldwin and the associated Sanity Studio.",
+  "main": "index.js",
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel"
+  },
+  "author": "Piper Haywood <piper@piperhaywood.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "turbo": "1.10.4"
+  }
+}

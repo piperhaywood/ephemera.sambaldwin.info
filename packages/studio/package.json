@@ -1,5 +1,5 @@
 {
-  "name": "ephemera-sanity-studio",
+  "name": "ephemera-studio",
   "private": true,
   "version": "1.0.0",
   "description": "This is Sanity Studio, a React app that connects to the hosted API which houses all of the content",
@@ -10,17 +10,17 @@
     "start": "sanity start",
     "build": "sanity build"
   },
-  "keywords": [
-    "sanity"
-  ],
   "dependencies": {
     "@sanity/base": "^2.27.2",
+    "@sanity/cli": "^3.15.1",
     "@sanity/color-input": "^2.27.2",
     "@sanity/core": "^2.27.0",
+    "@sanity/data-aspects": "^2.35.3",
     "@sanity/default-layout": "^2.27.2",
     "@sanity/default-login": "^2.27.0",
     "@sanity/desk-tool": "^2.27.2",
     "@sanity/eslint-config-studio": "^2.0.0",
+    "@sanity/form-builder": "^2.36.2",
     "@sanity/vision": "^2.27.2",
     "eslint": "^8.6.0",
     "prop-types": "^15.7",
@@ -28,6 +28,5 @@
     "react-dom": "^17.0",
     "react-icons": "^4.3.1",
     "styled-components": "^5.2.0"
-  },
-  "devDependencies": {}
+  }
 }

@@ -1,1 +1,8 @@
+# misc
 .DS_Store
+
+# turbo
+.turbo
+
+# dependencies
+node_modules
