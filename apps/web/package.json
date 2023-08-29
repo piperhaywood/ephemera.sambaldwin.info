@@ -1,5 +1,5 @@
 {
-  "name": "web",
+  "name": "ephemera-web",
   "version": "1.0.0",
   "description": "This is a Next.js site which displays Sanity content",
   "main": "index.js",
@@ -8,9 +8,6 @@
     "build": "next build",
     "start": "next start"
   },
-  "keywords": [
-    "next.js"
-  ],
   "author": "Piper Haywood <piper@piperhaywood.com>",
   "license": "ISC",
   "dependencies": {
