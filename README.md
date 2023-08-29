@@ -1,10 +1,15 @@
 # Ephemera
 
-This is a Turbo monorepo housing an early build of a website for an ephemera collection by [Sam Baldwin](https://sambaldwin.info), built by [Piper Haywood](https://piperhaywood.com). Public URL coming soon.
+This is a Turbo monorepo for a WIP website housing an ephemera collection by [Sam Baldwin](https://sambaldwin.info), built by [Piper Haywood](https://piperhaywood.com). Public URL coming soon.
 
 Currently, Turbo is pinned to v1.10.4 because of [this issue](https://github.com/vercel/turbo/issues/5331). Runs on node v18.6.0, see `.nvmrc`.
 
-I used this [Sanity blog tutorial](https://www.sanity.io/blog/build-your-own-blog-with-sanity-and-next-js) and the [Next.js blog example using Sanity](https://github.com/vercel/next.js/tree/canary/examples/cms-sanity) as the starting points for this project before setting up Turbo.
+The packages and apps in this monorepo include:
+
+- `apps/web`: A Next.js site that displays the content
+- `packages/studio`: The Sanity Studio used to edit this content
+
+Before setting up Turbo, I used this [Sanity blog tutorial](https://www.sanity.io/blog/build-your-own-blog-with-sanity-and-next-js) and the [Next.js blog example using Sanity](https://github.com/vercel/next.js/tree/canary/examples/cms-sanity) as the starting points for this project before setting up Turbo.
 
 ## Getting started
 
