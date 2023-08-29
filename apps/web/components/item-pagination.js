@@ -1,22 +1,30 @@
-import Link from 'next/link'
+import Link from "next/link";
 
-export default function ItemPagination({next, prev}) {
+export default function ItemPagination({ next, prev }) {
   return (
     <>
       {(next || prev) && (
         <nav className="item-nav">
           <ul className="item-nav-list">
-            {(next) && (
+            {next && (
               <li>
-                <Link href="/item[slug]" as={`/item/${next.slug}`}>
-                  <a aria-label={`Next item: ${next.title}`}>Next</a>
+                <Link
+                  href="/item[slug]"
+                  as={`/item/${next.slug}`}
+                  aria-label={`Next item: ${next.title}`}
+                >
+                  Next
                 </Link>
               </li>
             )}
-            {(prev) && (
+            {prev && (
               <li>
-                <Link href="/item[slug]" as={`/item/${prev.slug}`}>
-                  <a aria-label={`Previous item: ${prev.title}`}>Previous</a>
+                <Link
+                  href="/item[slug]"
+                  as={`/item/${prev.slug}`}
+                  aria-label={`Previous item: ${prev.title}`}
+                >
+                  Previous
                 </Link>
               </li>
             )}
@@ -30,5 +38,5 @@ export default function ItemPagination({next, prev}) {
         }
       `}</style>
     </>
-  )
+  );
 }
