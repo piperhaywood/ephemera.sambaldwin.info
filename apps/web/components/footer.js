@@ -1,15 +1,15 @@
-import Link from 'next/link'
-import Container from './container'
+import Link from "next/link";
+import Container from "./container";
 
 export default function Footer() {
   return (
     <>
       <footer className="site-footer">
         <Container>
-          <p className="footer-text">&copy; {new Date().getFullYear()} Sam Baldwin. Website by{' '}
-            <Link href="https://piperhaywood.com">
-              <a>Piper Haywood</a>
-            </Link>. More content to come.
+          <p className="footer-text">
+            &copy; {new Date().getFullYear()} Sam Baldwin. Website by{" "}
+            <Link href="https://piperhaywood.com">Piper Haywood</Link>. More
+            content to come.
           </p>
         </Container>
       </footer>
@@ -20,5 +20,5 @@ export default function Footer() {
         }
       `}</style>
     </>
-  )
+  );
 }
